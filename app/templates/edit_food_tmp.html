@@ -1,0 +1,22 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Sign In</h1>
+  <form action="" method="post" name="edit_food">
+      {{ form.hidden_tag() }}
+      <p>
+          Mancare: {{fd.company}} - {{fd.name}}<br>
+      </p>
+      <p>
+      Tip: {{fd.type}}
+      </p>
+      <p>
+      Cantitate: <!--adauga cantitate -->
+      </p>
+      <p>{{ form.remember_me }} Remember Me</p>
+      <p>Frecventa </p>
+      <p>Modifica frecventa</p>
+      <p><input type="submit" value="Sign In"></p>
+  </form>
+{% endblock %}

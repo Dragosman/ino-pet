@@ -122,7 +122,8 @@ def addFood(food):
 		"name": food.name,
 		"type": food.type,
 		"quantity": food.quantity,
-		"guide":{"error":"","quants":[]}
+		"guide":{"error":"","quants":[]},
+		"freq":food.freq
 
 	}
 
