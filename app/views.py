@@ -1,21 +1,32 @@
-from flask import render_template, flash, redirect
+from flask import render_template, flash, redirect, request
 from app import app
 #from .forms import LoginForm
 import helpers as hl
+from .forms import EditDogForm
 
 @app.route('/')
-@app.route('/index.html')
+@app.route('/index.html', methods=['GET', 'POST'])
 def index():
-    #user = {'nickname': 'Dragos'}  # user fals
     
     dogs = hl.getDogs()
     alerts = hl.getAlerts() 
+    form1 = EditDogForm()
 
-
+    if request.method == 'POST':
+    	if form1.validate:
+    		return "Form posted"
+    		# need to redirect and post data / modify the data in the firebase data base - tomorrow
+    	'''    	
+    	if form1.validate_on_submit():
+    		flash('Multumim! Datele au fost salvate!')
+    		return redirect('/index')
+    	'''
+    
     return render_template("index.html",
-                           title='Inopet Dashboard',
-                           dogs=dogs,
-                           alerts=alerts)
+    	title='Inopet Dashboard',
+    	dogs=dogs,
+    	alerts=alerts,
+    	form1 = form1)
 
 @app.route('/food.html')
 def food():

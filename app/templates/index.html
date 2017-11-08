@@ -105,6 +105,7 @@
                     <!-- /.panel -->
                         <div class="modal fade" id="ModalCatel{{dog.name}}" tabindex="-1" role="dialog" aria-labelledby="ModalCatel{{dog.name}}" aria-hidden="true">
                             <div class="modal-dialog" role="document">
+                                <form action = '/index.html' method=post>
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="ModalLabel">Editeaza Informatii despre {{dog.name}}</h5>
@@ -113,22 +114,24 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form>
+                                        
                                             <div class="form-group">
                                                 <label for="catel-name" class="form-control-label">Nume:</label>
-                                                <input type="text" class="form-control" id="catel-name" value="{{dog.name}}" required>
+                                                {{form1.catel_name(class_="form-control", id="catel-name", value=dog.name)}}
+                                                <!--<input type="text" class="form-control" id="catel-name" value="{{dog.name}}" required>-->
                                             </div>
                                             <div class="form-group">
                                                 <label for="catel-breed" class="form-control-label">Rasa:</label>
-                                                <input type="text" class="form-control" id="catel-breed" value="{{dog.breed}}" required>
+                                                {{form1.catel_breed(class_="form-control", id="catel-breed", value=dog.breed)}}
                                             </div>
                                             <div class="form-group">
                                                 <label for="catel-dob" class="form-control-label">Data Nasterii (zz/ll/aaaa):</label>
-                                                <input type="text" class="form-control" id="catel-dob" value="{{dog.dob}}" required>
+                                                {{form1.catel_dob(class_="form-control", id="catel-dob", value=dog.dob)}}
+                                                
                                             </div>
                                             <div class="form-group">
                                                 <label for="catel-weight" class="form-control-label">Greutate (kg):</label>
-                                                <input type="text" class="form-control" id="catel-weight" value="{{dog.weight}}" required>
+                                                {{form1.catel_weight(class_="form-control", id="catel-weight", value=dog.weight)}}
                                             </div>
 
                                             <hr/>
@@ -137,17 +140,18 @@
 
                                             <div class="form-group">
                                                 <label for="catel-ultim-vaccin" class="form-control-label">Ultimul vaccin pe data (zz/ll/aaaa):</label>
-                                                <input type="text" class="form-control" id="catel-ultim-vaccin" value="{{ dog.vaccine_last['date'] }}" required>
+                                                {{form1.catel_vaccine_last(class_="form-control", id="catel-ultim-vaccin", value=dog.vaccine_last['date'])}}
+                                            
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label for="catel-ultim-vaccin-tip" class="form-control-label">A fost de tipul:</label>
-                                                <input type="text" class="form-control" id="catel-ultim-vaccin-tip" value="{{ dog.vaccine_last['name'] }}" required>
+                                                {{form1.catel_vaccine_last_type(class_="form-control", id="catel-ultim-vaccin-tip", value=dog.vaccine_last['name'])}}
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="catel-urmator-vaccin" class="form-control-label">Urmatorul vaccin pe data (zz/ll/aaaa):</label>
-                                                <input type="text" class="form-control" id="catel-urmator-vaccin" value="{{ dog.vaccine_next['date'] }}" required>
+                                                {{form1.catel_vaccine_next(class_="form-control", id="catel-urmator-vaccin", value=dog.vaccine_next['date'] )}}
                                             </div>
 
                                             <hr/>
@@ -156,17 +160,18 @@
 
                                             <div class="form-group">
                                                 <label for="catel-ultima-di" class="form-control-label">Ultima deparazitare interna pe data (zz/ll/aaaa):</label>
-                                                <input type="text" class="form-control" id="catel-ultima-di" value="{{ dog.depar_int_last['date'] }}" required>
+                                                {{form1.catel_di_last(class_="form-control", id="catel-ultima-di", value=dog.depar_int_last['date'] )}}                                                
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label for="catel-ultima-di-tip" class="form-control-label">A fost de tipul:</label>
-                                                <input type="text" class="form-control" id="catel-ultima-di-tip" value="{{ dog.depar_int_last['name'] }}" required>
+                                                {{form1.catel_di_last_type(class_="form-control", id="catel-ultima-di-tip", value = dog.depar_int_last['name'] )}}  
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="catel-urmatoare-di" class="form-control-label">Urmatoarea deparazitare interna pe data (zz/ll/aaaa):</label>
-                                                <input type="text" class="form-control" id="catel-urmatoare-di" value="{{ dog.depar_int_next['date'] }}" required>
+
+                                                {{form1.catel_di_next(class_="form-control", id="catel-urmatoarea-di", value = dog.depar_int_next['date'] )}} 
                                             </div>
 
                                             <hr/>
@@ -174,27 +179,30 @@
                                             <p> DEPARAZITARI EXTERNE </p>
                                             <div class="form-group">
                                                 <label for="catel-ultima-de" class="form-control-label">Ultima deparazitare externa pe data (zz/ll/aaaa):</label>
-                                                <input type="text" class="form-control" id="catel-ultima-de" value="{{ dog.depar_ext_last['date'] }}" required>
+                                                {{form1.catel_de_last(class_="form-control", id="catel-ultima-de", value = dog.depar_ext_last['date'] )}} 
+
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label for="catel-ultima-de-tip" class="form-control-label">A fost de tipul:</label>
-                                                <input type="text" class="form-control" id="catel-ultima-de-tip" value="{{ dog.depar_ext_last['name'] }}" required>
+                                                {{form1.catel_de_last_type(class_="form-control", id="catel-ultima-de-tip", value = dog.depar_ext_last['name'])}} 
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="catel-urmatoare-de" class="form-control-label">Urmatoarea deparazitare externa pe data (zz/ll/aaaa):</label>
-                                                <input type="text" class="form-control" id="catel-urmatoare-de" value="{{ dog.depar_ext_next['date'] }}" required/>
+                                                {{form1.catel_de_last_type(class_="form-control", id="catel-urmatoarea-de", value = dog.depar_ext_next['date'])}}
                                             </div>
 
                                             
-                                        </form>
+                                        
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Inchide</button>
-                                        <button type="submit" class="btn btn-primary">Salveaza</button>
+                                        
+                                        {{form1.submit(class_="btn btn-primary", value = "Ok")}}
+                                        
                                     </div>
                                 </div>
+                                </form>
                             </div>
                         </div>
                 </div>
@@ -237,16 +245,6 @@
         
         <div> 
 
-        <!--
-        <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCatel">Deshide Editeaza Ino</button> 
-    
-                </div>
-        </div>
-        -->
-
 </div>
         <!-- /#page-wrapper -->
 
@@ -254,6 +252,7 @@
     <!-- /#wrapper -->
     <script>
     $(document).ready(function(){
+      var date_input0 = $('input[id="catel-dob"]');
       var date_input1=$('input[id="catel-ultim-vaccin"]'); //our date input has the name "date"
       var date_input2=$('input[id="catel-urmator-vaccin"]');
       var date_input3=$('input[id="catel-ultima-di"]');
@@ -268,6 +267,7 @@
         todayHighlight: true,
         autoclose: true,
       };
+      date_input0.datepicker(options);
       date_input1.datepicker(options);
       date_input2.datepicker(options);
       date_input3.datepicker(options);

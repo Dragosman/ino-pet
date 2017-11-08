@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import StringField, BooleanField, DecimalField, SelectField, SubmitField
+from wtforms import StringField, BooleanField, DecimalField, SelectField
 from wtforms.validators import DataRequired
 
 class LoginForm(Form):
@@ -37,16 +37,15 @@ class EditDogForm(Form):
 	
 	catel_vaccine_last = StringField('catel-ultim-vaccin', validators=[DataRequired()])
 	catel_vaccine_last_type = StringField('catel-ultim-vaccin-tip', validators=[DataRequired()])
-	catel_vaccine_next = StringField('catel-urmator-vaccin', validators=[DataRequired()])
+	catel_vaccine_next = StringField('catel-next-vaccin', validators=[DataRequired()])
 	
-	catel_di_last = StringField('catel-ultima-di', validators=[DataRequired()])
-	catel_di_last_type = StringField('catel-ultima-di-tip', validators=[DataRequired()])
-	catel_di_next = StringField('catel-urmatoarea-di', validators=[DataRequired()])
+	catel_di_last = StringField('catel-ultim-di', validators=[DataRequired()])
+	catel_di_last_type = StringField('catel-ultim-di-tip', validators=[DataRequired()])
+	catel_di_next = StringField('catel-next-di', validators=[DataRequired()])
 
-	catel_de_last = StringField('catel-ultima-de', validators=[DataRequired()])
-	catel_de_last_type = StringField('catel-ultima-de-tip', validators=[DataRequired()])
-	catel_de_next = StringField('catel-urmatoarea-de', validators=[DataRequired()])
-	submit = SubmitField("Ok")
+	catel_de_last = StringField('catel-ultim-de', validators=[DataRequired()])
+	catel_de_last_type = StringField('catel-ultim-de-tip', validators=[DataRequired()])
+	catel_de_next = StringField('catel-next-de', validators=[DataRequired()])
 
 class AddDogForm(Form):
 	pass
