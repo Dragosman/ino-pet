@@ -45,8 +45,17 @@
             
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                {% for dog in dogs%} 
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
 
+                {% for dog in dogs%} 
 
 
 
@@ -106,6 +115,8 @@
                         <div class="modal fade" id="ModalCatel{{dog.name}}" tabindex="-1" role="dialog" aria-labelledby="ModalCatel{{dog.name}}" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <form action = '/index.html' method=post>
+                                {{ form1.hidden_tag() }}
+                                {{form1.catel_k(id="catel_k", type="hidden", value=dog.key)}}
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="ModalLabel">Editeaza Informatii despre {{dog.name}}</h5>
@@ -114,7 +125,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        
+
                                             <div class="form-group">
                                                 <label for="catel-name" class="form-control-label">Nume:</label>
                                                 {{form1.catel_name(class_="form-control", id="catel-name", value=dog.name)}}
@@ -190,7 +201,7 @@
 
                                             <div class="form-group">
                                                 <label for="catel-urmatoare-de" class="form-control-label">Urmatoarea deparazitare externa pe data (zz/ll/aaaa):</label>
-                                                {{form1.catel_de_last_type(class_="form-control", id="catel-urmatoarea-de", value = dog.depar_ext_next['date'])}}
+                                                {{form1.catel_de_next(class_="form-control", id="catel-urmatoarea-de", value = dog.depar_ext_next['date'])}}
                                             </div>
 
                                             
