@@ -24,20 +24,19 @@ def index():
     		dog1.weight=form1.data['catel_weight']
     		dog1.breed=form1.data['catel_breed']
     		dog1.dob=form1.data['catel_dob']
-    		dog1.vaccine_last = {form1.data['catel_vaccine_last'], form1.data['catel_vaccine_last_type']}
-    		dog1.vaccine_next = form1.data['catel_name']
-    		dog1.depar_int_last = {"name":"", "date":""}
-    		dog1.depar_int_next = {"name":"", "date":""}
-    		dog1.depar_ext_last = {"name":"", "date":""}
-    		dog1.depar_ext_next = {"name":"", "date":""}
+    		dog1.vaccine_last = {"date":form1.data['catel_vaccine_last'], "name":form1.data['catel_vaccine_last_type']}
+    		dog1.vaccine_next = {"date":form1.data['catel_vaccine_next'], "name":"NEXT"}
+    		dog1.depar_int_last = {"date":form1.data['catel_di_last'], "name":form1.data['catel_di_last_type']}
+    		dog1.depar_int_next = {"date":form1.data['catel_di_next'], "name":"NEXT"}
+    		dog1.depar_ext_last = {"date":form1.data['catel_de_last'], "name":form1.data['catel_de_last_type']}
+    		dog1.depar_ext_next = {"date":form1.data['catel_de_next'], "name":"NEXT"}
 
     		print (dog1.vaccine_last)
-    		'''
-    		print (dog1.key)
-    		print (dog1.name)
-    		
+    		print(dog1.depar_ext_next)
 
-			'''
+    		print (dog1.depar_int_last)
+    		
+    		hl.updateDog(dog1.key, dog1)
     		msg1='Multumim! Schimbarile tale fost salvate!'
 
     		
@@ -53,6 +52,7 @@ def index():
     	if form1.validate_on_submit():
 
     	'''
+    	flash(msg1)
     	return render_template("index.html",
     			title='Inopet Dashboard', 
     			dogs=dogs,
