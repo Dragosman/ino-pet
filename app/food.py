@@ -76,16 +76,17 @@ def days_estimator(food):
 	#addition_date = date when we have the food home
 	
 	total_quantity = float(food.quantity)
-	quantity_per_day=0.0
+	quantity_per_day=food.freq
 
 	#cod care estimeaza based on food and kg_dogs
 	# quantity_per_day
+	'''
 	quant = quantity_mapper()
 	if food.name=="ZD" and food.type=="dry":
 		quantity_per_day=quant[0]
 	elif food.name=="ZD" and food.type=="can":
 		quantity_per_day=quant[1]
-
+	'''
 
 	total_days = total_quantity/quantity_per_day
 	return (total_days, add_days("NOW", total_days))
